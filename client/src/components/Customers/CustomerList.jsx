@@ -68,12 +68,13 @@ const CustomerList = (props) => {
       style={{
         position: "relative"
       }}>
-        <thead className =" thead-light">
+        <thead className =" thead-dark">
           <tr className="bg-primary"
           style={{
             
           fontFamily: "Arial, Helvetica, sans-serif",
           fontSize: "11px"
+
           }}>
             <th scope="col">Customer ID</th>
             <th scope="col">Sales Rep Emp No</th>
