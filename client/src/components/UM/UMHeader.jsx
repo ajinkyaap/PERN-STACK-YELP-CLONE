@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 const UMHeader = () => {
   let history = useHistory(); 
   const handleHomeClick= () =>{
-    history.push("/");
+    history.push("/home");
   }
   return (
 
@@ -16,8 +16,8 @@ const UMHeader = () => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent" >
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
-            {/* <btn className="nav-link" onClick={handleHomeClick} >Home <span className="sr-only">(current)</span></btn> */}
-            <a className="nav-link">Home <span className="sr-only">(current)</span></a>
+            <btn className="nav-link" onClick={handleHomeClick} >Home <span className="sr-only"></span></btn>
+            {/* <a className="nav-link">Home <span className="sr-only"></span></a> */}
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">User </a>

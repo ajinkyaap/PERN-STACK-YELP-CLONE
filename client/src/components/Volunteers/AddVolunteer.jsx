@@ -76,204 +76,206 @@ const AddVolunteer = () => {
   };
   return (
     <>
-<h4> Add A Volunteer</h4>
-    <div className="mb-4">
-      <form action="">
-        <div className="form-row">
-          <div className="col">
-          <label class="form-label">Set UM Seq Num</label>
-            <input
-              value={um_seq}
-              onChange={(e) => setUmSeq(e.target.value)}
-              type="number"
-              className="form-control"
-              placeholder="User Seq Number"
-              required
-            />
-          </div>
-          <div className="col">
-            <label class="form-label">Set UM Login</label>
-            <input
-              value={um_login_id}
-              onChange={(e) => setUmLoginId(e.target.value)}
-              className="form-control"
-              type="text"
-              placeholder="um_login_id"
-              required
-            />
-          </div>
-          <div className="col">
-          <label class="form-label">Set Password</label>
-            <input
-              value={um_password}
-              onChange={(e) => setUmPassword(e.target.value)}
-              className="form-control"
-              type="text"
-              placeholder="um_password"
-              required
-            />
-          </div>
-          {/* <div className="col">
-            <select
-              value={um_password}
-              onChange={(e) => setPriceRange(e.target.value)}
-              className="custom-select my-1 mr-sm-2"
-            >
-              <option disabled>Price Range</option> 
-              <option value="1">$</option>
-              <option value="2">$$</option>
-              <option value="3">$$$</option>
-              <option value="4">$$$$</option>
-              <option value="5">$$$$$</option>
-            </select>
-          </div>  */}
-          <div className="col">
-          <label class="form-label">Role</label>
-            <input
-              value="12"
-              onChange={(e) => setUmRole(e.target.value)}
-              className="form-control"
-              type="number"
-              placeholder="um_role"
-            />
-          </div>
-        </div>
-        <div className="form-row">
-          <div className="col">
-        <label class="form-label">Name</label>
-            <input
-              value={um_name}
-              onChange={(e) => setUmName(e.target.value)}
-              type="text"
-              className="form-control"
-              placeholder="Um Name"
-              required
-            />
-          </div>
-          <div className="col">
-          <label class="form-label">Address</label>
-            <input
-              value={um_address}
-              onChange={(e) => setUmAddress(e.target.value)}
-              className="form-control"
-              type="text"
-              placeholder="um_address"
-              required
-            />
-          </div>
-          <div className="col">
-          <label class="form-label">Email</label>
-            <input
-              value={um_email}
-              onChange={(e) => setUmEmail(e.target.value)}
-              className="form-control"
-              type="text"
-              placeholder="um_email"
-            />
-          </div>
-          <div className="col">
-          <label class="form-label">Unique ID</label>
-            <input
-              value={um_unique_id}
-              onChange={(e) => setUmUniqueId(e.target.value)}
-              className="form-control"
-              type="text"
-              placeholder="um_unique_id"
-            />
-          </div>
-        </div>
-        <div className="form-row">
-          <div className="col">
-          <label class="form-label">UM ID</label>
-            <input
-              value={um_id_type}
-              onChange={(e) => setUmIdType(e.target.value)}
-              type="number"
-              className="form-control"
-              placeholder="um_id_type"
-            />
-          </div>
-          <div className="col">
-          <label class="form-label">Department</label>
-            <input
-              value={um_dept}
-              onChange={(e) => setUmDept(e.target.value)}
-              className="form-control"
-              type="number"
-              placeholder="um_dept"
-            />
-          </div>
-          <div className="col">
-          <label class="form-label">Login Status</label>
-            <input
-              value={um_login_sts}
-              onChange={(e) => setUmLoginSts(e.target.value)}
-              className="form-control"
-              type="number"
-              placeholder="um_login_sts"
-            />
-          </div>
-          <div className="col">
-          <label class="form-label">Login Created Time</label>
-            <input
-              value={um_created_time}
-              onChange={(e) => setUmCreatedTime(e.target.value)}
-              className="form-control"
-              type="date"
-              placeholder="um_created_time"
-            />
-          </div>
-        </div>
-        <div className="form-row">
-          <div className="col">
-          <label class="form-label">Last Login</label>
-            <input
-              value={um_last_login}
-              onChange={(e) => setUmLastLogin(e.target.value)}
-              type="date"
-              className="form-control"
-              placeholder="um_last_login"
-            />
-          </div>
-          <div className="col">
-          <label class="form-label">Um Ln Attempts</label>
-            <input
-              value={um_ln_attempts}
-              onChange={(e) => setUmLnAttempts(e.target.value)}
-              className="form-control"
-              type="text"
-              placeholder="um_ln_attempts"
-            />
-          </div>
-          <div className="col">
-          <label class="form-label">Vol Id</label>
-            <input
-              value={vol_id}
-              onChange={(e) => setVolId(e.target.value)}
-              className="form-control"
-              type="text"
-              placeholder="Vol ID"
-            />
-          </div>
-          <div className="col text-center">
-          <button
-            onClick={handleSubmit}
-            type="submit"
-            className="btn btn-primary"
-            style={{
+    <h4> Add A Volunteer</h4>
+      {/* <div id="addVolunteer"> */}
+        <div className="mb-4" >
+          <form action="">
+            <div className="form-row">
+              <div className="col">
+              <label class="form-label">Set UM Seq Num</label>
+                <input
+                  value={um_seq}
+                  onChange={(e) => setUmSeq(e.target.value)}
+                  type="number"
+                  className="form-control"
+                  placeholder="User Seq Number"
+                  required
+                />
+              </div>
+              <div className="col">
+                <label class="form-label">Set UM Login</label>
+                <input
+                  value={um_login_id}
+                  onChange={(e) => setUmLoginId(e.target.value)}
+                  className="form-control"
+                  type="text"
+                  placeholder="um_login_id"
+                  required
+                />
+              </div>
+              <div className="col">
+              <label class="form-label">Set Password</label>
+                <input
+                  value={um_password}
+                  onChange={(e) => setUmPassword(e.target.value)}
+                  className="form-control"
+                  type="text"
+                  placeholder="um_password"
+                  required
+                />
+              </div>
+              {/* <div className="col">
+                <select
+                  value={um_password}
+                  onChange={(e) => setPriceRange(e.target.value)}
+                  className="custom-select my-1 mr-sm-2"
+                >
+                  <option disabled>Price Range</option> 
+                  <option value="1">$</option>
+                  <option value="2">$$</option>
+                  <option value="3">$$$</option>
+                  <option value="4">$$$$</option>
+                  <option value="5">$$$$$</option>
+                </select>
+              </div>  */}
+              <div className="col">
+              <label class="form-label">Role</label>
+                <input
+                  value="12"
+                  onChange={(e) => setUmRole(e.target.value)}
+                  className="form-control"
+                  type="number"
+                  placeholder="um_role"
+                />
+              </div>
+            </div>
+            <div className="form-row">
+              <div className="col">
+            <label class="form-label">Name</label>
+                <input
+                  value={um_name}
+                  onChange={(e) => setUmName(e.target.value)}
+                  type="text"
+                  className="form-control"
+                  placeholder="Um Name"
+                  required
+                />
+              </div>
+              <div className="col">
+              <label class="form-label">Address</label>
+                <input
+                  value={um_address}
+                  onChange={(e) => setUmAddress(e.target.value)}
+                  className="form-control"
+                  type="text"
+                  placeholder="um_address"
+                  required
+                />
+              </div>
+              <div className="col">
+              <label class="form-label">Email</label>
+                <input
+                  value={um_email}
+                  onChange={(e) => setUmEmail(e.target.value)}
+                  className="form-control"
+                  type="text"
+                  placeholder="um_email"
+                />
+              </div>
+              <div className="col">
+              <label class="form-label">Unique ID</label>
+                <input
+                  value={um_unique_id}
+                  onChange={(e) => setUmUniqueId(e.target.value)}
+                  className="form-control"
+                  type="text"
+                  placeholder="um_unique_id"
+                />
+              </div>
+            </div>
+            <div className="form-row">
+              <div className="col">
+              <label class="form-label">UM ID</label>
+                <input
+                  value={um_id_type}
+                  onChange={(e) => setUmIdType(e.target.value)}
+                  type="number"
+                  className="form-control"
+                  placeholder="um_id_type"
+                />
+              </div>
+              <div className="col">
+              <label class="form-label">Department</label>
+                <input
+                  value={um_dept}
+                  onChange={(e) => setUmDept(e.target.value)}
+                  className="form-control"
+                  type="number"
+                  placeholder="um_dept"
+                />
+              </div>
+              <div className="col">
+              <label class="form-label">Login Status</label>
+                <input
+                  value={um_login_sts}
+                  onChange={(e) => setUmLoginSts(e.target.value)}
+                  className="form-control"
+                  type="number"
+                  placeholder="um_login_sts"
+                />
+              </div>
+              <div className="col">
+              <label class="form-label">Login Created Time</label>
+                <input
+                  value={um_created_time}
+                  onChange={(e) => setUmCreatedTime(e.target.value)}
+                  className="form-control"
+                  type="date"
+                  placeholder="um_created_time"
+                />
+              </div>
+            </div>
+            <div className="form-row">
+              <div className="col">
+              <label class="form-label">Last Login</label>
+                <input
+                  value={um_last_login}
+                  onChange={(e) => setUmLastLogin(e.target.value)}
+                  type="date"
+                  className="form-control"
+                  placeholder="um_last_login"
+                />
+              </div>
+              <div className="col">
+              <label class="form-label">Um Ln Attempts</label>
+                <input
+                  value={um_ln_attempts}
+                  onChange={(e) => setUmLnAttempts(e.target.value)}
+                  className="form-control"
+                  type="text"
+                  placeholder="um_ln_attempts"
+                />
+              </div>
+              <div className="col">
+              <label class="form-label">Vol Id</label>
+                <input
+                  value={vol_id}
+                  onChange={(e) => setVolId(e.target.value)}
+                  className="form-control"
+                  type="text"
+                  placeholder="Vol ID"
+                />
+              </div>
+              <div className="col text-center">
+              <button
+                onClick={handleSubmit}
+                type="submit"
+                className="btn btn-primary"
+                style={{
 
-              marginTop: "25px",
-              // alignSelf: "center",
-              width: "150px"
-            }}
-            
-          >
-            Add
-          </button>
-          </div>
+                  marginTop: "25px",
+                  // alignSelf: "center",
+                  width: "150px"
+                }}
+                
+              >
+                Add
+              </button>
+              </div>
+            </div>
+          </form>
         </div>
-      </form>
-    </div>
+      {/* </div> */}
     </>
   );
 };

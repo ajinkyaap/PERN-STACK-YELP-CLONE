@@ -44,6 +44,7 @@ const AddCustomer = () => {
       });
       console.log(response.data.data);
       addCustomers(response.data.data.Customers);
+      alert('Customer Added');
     } catch (err) {
       console.log(err);
     }

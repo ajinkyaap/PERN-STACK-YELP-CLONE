@@ -29,6 +29,15 @@ app.post("/api/v1/userMasters", async (req, res) => {
       },
     });
   } catch (err) {
+    const error = err;
+    res.status(400).json({
+      status: "error",
+      error:{
+        detail: err.detail,
+        where: err.where,
+        routine: err.routine
+      }
+    });
     console.log(err);
   }
 });
@@ -50,7 +59,16 @@ app.get("/api/v1/userMasters", async (req, res) => {
         User_Masters: results.rows,
       },
     });
-  } catch (err) {
+  } catch (err)  {
+    const error = err;
+    res.status(400).json({
+      status: "error",
+      error:{
+        detail: err.detail,
+        where: err.where,
+        routine: err.routine
+      }
+    });
     console.log(err);
   }
 });
@@ -64,15 +82,36 @@ app.get("/api/v1/userMasters/:um_seq", async (req, res) => {
       "select * from user_master where um_seq = $1",
       [req.params.um_seq]
     );
+    // console.log("User Master length "+ results.length )
+    // var size = results.rows.length;
+    // console.log("results size "+ size);
+    if(results.rows.length >= 1){
+      res.status(200).json({
+        status: "success",
+        data: {
+          User_Masters: results.rows[0],
+          // reviews: reviews.rows,
+        },
+      });    
+  }else{
+    res.status(404).json({
+      status: "error",
+      error:{
+        detail: "No User Master found"
+      }
+    })
 
-    res.status(200).json({
-      status: "success",
-      data: {
-        User_Masters: results.rows[0],
-        // reviews: reviews.rows,
-      },
+  }
+  } catch (err)  {
+    const error = err;
+    res.status(400).json({
+      status: "error",
+      error:{
+        detail: err.detail,
+        where: err.where,
+        routine: err.routine
+      }
     });
-  } catch (err) {
     console.log(err);
   }
 });
@@ -92,7 +131,16 @@ app.put("/api/v1/userMasters/:um_seq", async (req, res) => {
         User_Masters: results.rows[0],
       },
     });
-  } catch (err) {
+  } catch (err)  {
+    const error = err;
+    res.status(400).json({
+      status: "error",
+      error:{
+        detail: err.detail,
+        where: err.where,
+        routine: err.routine
+      }
+    });
     console.log(err);
   }
   console.log(req.params.id);
@@ -109,7 +157,16 @@ app.delete("/api/v1/userMasters/:um_seq", async (req, res) => {
     res.status(204).json({
       status: "sucess",
     });
-  } catch (err) {
+  } catch (err)  {
+    const error = err;
+    res.status(400).json({
+      status: "error",
+      error:{
+        detail: err.detail,
+        where: err.where,
+        routine: err.routine
+      }
+    });
     console.log(err);
   }
 });
@@ -150,7 +207,16 @@ app.post("/api/v1/customers", async (req, res) => {
         Customers: customerData.rows[0],
       },
     });
-  } catch (err) {
+  } catch (err)  {
+    const error = err;
+    res.status(400).json({
+      status: "error",
+      error:{
+        detail: err.detail,
+        where: err.where,
+        routine: err.routine
+      }
+    });
     console.log(err);
   }
 });
@@ -171,7 +237,16 @@ app.get("/api/v1/customers", async (req, res) => {
         Customers: customerData.rows,
       },
     });
-  } catch (err) {
+  } catch (err)  {
+    const error = err;
+    res.status(400).json({
+      status: "error",
+      error:{
+        detail: err.detail,
+        where: err.where,
+        routine: err.routine
+      }
+    });
     console.log(err);
   }
 });
@@ -185,7 +260,8 @@ app.get("/api/v1/customers/:customer_id", async (req, res) => {
       "select * from customers where customer_id = $1",
       [req.params.customer_id]
     );
-
+    
+    if(customerData.rows.length >= 1){
     res.status(200).json({
       status: "success",
       data: {
@@ -193,7 +269,24 @@ app.get("/api/v1/customers/:customer_id", async (req, res) => {
         // reviews: reviews.rows,
       },  
     });
-  } catch (err) {
+  }else{
+      res.status(404).json({
+        status: "error",
+        error:{
+          detail: "No Candidate found"
+        }
+      })
+  }
+ } catch (err)  {
+    const error = err;
+    res.status(400).json({
+      status: "error",
+      error:{
+        detail: err.detail,
+        where: err.where,
+        routine: err.routine
+      }
+    });
     console.log(err);
   }
 });
@@ -213,7 +306,16 @@ app.put("/api/v1/customers/:customer_id", async (req, res) => {
         Customers: customerData.rows[0],
       },
     });
-  } catch (err) {
+  } catch (err)  {
+    const error = err;
+    res.status(400).json({
+      status: "error",
+      error:{
+        detail: err.detail,
+        where: err.where,
+        routine: err.routine
+      }
+    });
     console.log(err);
   }
   console.log(req.params.id);
@@ -230,7 +332,16 @@ app.delete("/api/v1/customers/:customer_id", async (req, res) => {
     res.status(204).json({
       status: "sucess",
     });
-  } catch (err) {
+  } catch (err)  {
+    const error = err;
+    res.status(400).json({
+      status: "error",
+      error:{
+        detail: err.detail,
+        where: err.where,
+        routine: err.routine
+      }
+    });
     console.log(err);
   }
 });
@@ -241,19 +352,36 @@ app.get("/api/v1/userCustomers/:vol_id", async (req, res) => {
   try {
     //const results = await db.query("select * from restaurants");
     const userCustomerData = await db.query(
-      "SELECT * FROM customers INNER JOIN volunteer ON customers.sales_rep_emp_num = volunteer.vol_id where sales_rep_emp_num=$1",
+      "SELECT * FROM customers INNER JOIN volunteer ON customers.sales_rep_emp_num = volunteer.vol_id where sales_rep_emp_num=$1 ORDER BY customer_id",
       [req.params.vol_id]
     );
     console.log(userCustomerData);
-
-    res.status(200).json({
-      status: "success",
-      results: userCustomerData.rows.length,
-      data: {
-        userCustomerData: userCustomerData.rows,
-      },
+    if(userCustomerData.rows.length >= 1){
+      res.status(200).json({
+        status: "success",
+        results: userCustomerData.rows.length,
+        data: {
+          userCustomerData: userCustomerData.rows,
+        },
+      });
+    }else{
+      res.status(404).json({
+        status: "error",
+        error:{
+          detail: "No Candidate found for Volunteer"
+        }
+      })
+  }
+  } catch (err)  {
+    const error = err;
+    res.status(400).json({
+      status: "error",
+      error:{
+        detail: err.detail,
+        where: err.where,
+        routine: err.routine
+      }
     });
-  } catch (err) {
     console.log(err);
   }
 });
@@ -264,19 +392,36 @@ app.get("/api/v1/userVolunteers/:um_seq", async (req, res) => {
   try {
     //const results = await db.query("select * from restaurants");
     const userVolunteerData = await db.query(
-      "SELECT * FROM volunteer INNER JOIN user_master ON volunteer.um_seq = user_master.um_seq where user_master.um_seq=$1",
+      "SELECT * FROM volunteer INNER JOIN user_master ON volunteer.um_seq = user_master.um_seq where user_master.um_seq=$1 ORDER BY vol_id",
       [req.params.um_seq]
     );
     console.log(userVolunteerData);
-
-    res.status(200).json({
-      status: "success",
-      results: userVolunteerData.rows.length,
-      data: {
-        userVolunteers: userVolunteerData.rows,
-      },
+    if(userVolunteerData.rows.length >= 1){
+      res.status(200).json({
+        status: "success",
+        results: userVolunteerData.rows.length,
+        data: {
+          userVolunteers: userVolunteerData.rows,
+        },
+      });
+    }else{
+      res.status(404).json({
+        status: "error",
+        error:{
+          detail: "No Volunteer found for User Master"
+        }
+      })
+  }
+  } catch (err)  {
+    const error = err;
+    res.status(400).json({
+      status: "error",
+      error:{
+        detail: err.detail,
+        where: err.where,
+        routine: err.routine
+      }
     });
-  } catch (err) {
     console.log(err);
   }
 });
@@ -299,7 +444,16 @@ app.post("/api/v1/login", async (req, res) => {
         Login: results.rows[0],
       },
     });
-  } catch (err) {
+  } catch (err)  {
+    const error = err;
+    res.status(400).json({
+      status: "error",
+      error:{
+        detail: err.detail,
+        where: err.where,
+        routine: err.routine
+      }
+    });
     console.log(err);
   }
 });
@@ -320,7 +474,16 @@ app.get("/api/v1/login/:um_login_id", async (req, res) => {
         // reviews: reviews.rows,
       },  
     });
-  } catch (err) {
+  } catch (err)  {
+    const error = err;
+    res.status(400).json({
+      status: "error",
+      error:{
+        detail: err.detail,
+        where: err.where,
+        routine: err.routine
+      }
+    });
     console.log(err);
   }
 });
@@ -343,7 +506,15 @@ app.post("/api/v1/volunteer", async (req, res) => {
         Volunteers: results.rows[0],
       },
     });
-  } catch (err) {
+  } catch (err)  {
+    res.status(400).json({
+      status: "error",
+      error:{
+        detail: err.detail,
+        where: err.where,
+        routine: err.routine
+      }
+    });
     console.log(err);
   }
 });
@@ -367,7 +538,16 @@ app.get("/api/v1/volunteer", async (req, res) => {
         Volunteers: results.rows,
       },
     });
-  } catch (err) {
+  } catch (err)  {
+    const error = err;
+    res.status(400).json({
+      status: "error",
+      error:{
+        detail: err.detail,
+        where: err.where,
+        routine: err.routine
+      }
+    });
     console.log(err);
   }
 });
@@ -381,15 +561,32 @@ app.get("/api/v1/volunteer/:vol_id", async (req, res) => {
       "select * from volunteer where vol_id = $1",
       [req.params.vol_id]
     );
-
-    res.status(200).json({
-      status: "success",
-      data: {
-        Volunteers: results.rows[0],
-        // reviews: reviews.rows,
-      },
+    if(results.rows.length >= 1){
+      res.status(200).json({
+        status: "success",
+        data: {
+          Volunteers: results.rows[0],
+          // reviews: reviews.rows,
+        },
+      });
+    }else{
+      res.status(404).json({
+        status: "error",
+        error:{
+          detail: "No User Master found"
+        }
+      })
+  }
+  } catch (err)  {
+    const error = err;
+    res.status(400).json({
+      status: "error",
+      error:{
+        detail: err.detail,
+        where: err.where,
+        routine: err.routine
+      }
     });
-  } catch (err) {
     console.log(err);
   }
 });
@@ -409,7 +606,16 @@ app.put("/api/v1/volunteer/:vol_id", async (req, res) => {
         Volunteer: results.rows[0],
       },
     });
-  } catch (err) {
+  } catch (err)  {
+    const error = err;
+    res.status(400).json({
+      status: "error",
+      error:{
+        detail: err.detail,
+        where: err.where,
+        routine: err.routine
+      }
+    });
     console.log(err);
   }
   console.log(req.params.id);
@@ -426,7 +632,15 @@ app.delete("/api/v1/volunteer/:vol_id", async (req, res) => {
     res.status(204).json({
       status: "success",
     });
-  } catch (err) {
+  } catch (err)  {
+    const error = err;
+    res.status(400).json({
+      status: "error",
+      error:{
+        detail: err.detail,
+        where: err.where
+      }
+    });
     console.log(err);
   }
 });

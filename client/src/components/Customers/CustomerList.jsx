@@ -104,10 +104,15 @@ const CustomerList = (props) => {
             customers.map((customer) => {
               return (
                 <tr>
-                  <td 
-                    onClick={() => handleCustomerSelect(customer.customer_id)}
-                    key={customer.customer_id}
-                    >{customer.customer_id}</td>
+                  <td
+                  onClick={() => handleCustomerSelect(customer.customer_id)}
+                  // key={customer.customer_id}
+                  style={{
+                    // position: "absolute"
+                    // marginRi
+                  }}
+                  >{customer.customer_id}
+                  </td>
                   <td>{customer.sales_rep_emp_num}</td>
                   <td>{customer.cust_first_name}</td>
                   <td>{customer.cust_last_name}</td>
