@@ -1,31 +1,48 @@
 .content{
-    margin-top: 56px;
-    margin-bottom: 5em;
+  margin-top: 56px;
+  margin-bottom: 5em;
 }
 
 /* h4{
-    background-color: black;
+  background-color: black;
 } */
 h4{
-    display: flex;
-    border-left: thick solid red;
-    margin-top: 65px;
-    height: 30px;
-    padding-left: 5px;
-    justify-content: baseline;
-    background-color: rgb(235, 234, 234);
+  display: flex;
+  border-left: thick solid red;
+  margin-top: 65px;
+  height: 30px;
+  padding-left: 5px;
+  justify-content: baseline;
+  background-color: rgb(235, 234, 234);
 }
 
 .form-label {
-    font-size: 13px;
-    margin-bottom: 0px
-  }
-  .form-label::after{
-    content:"*";
-    color:red;
-  }
-  .btn-primary:hover{
-    background-color: red;
-    border-color: red;
-    /* outline-color: red;   */
-  }
+  font-size: 13px;
+  margin-bottom: 0px
+}
+.form-label::after{
+  content:"*";
+  color:red;
+}
+.btn-primary:hover{
+  background-color: red;
+  border-color: red;
+  /* outline-color: red;   */
+}
+
+h6{
+  text-align: left;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+div .container .col-lg {
+  text-align: left;
+  padding: 2px 1px 0px 0px;
+}
+
+.table .thead-dark th {
+  font-size: 10px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}

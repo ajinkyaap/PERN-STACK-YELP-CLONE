@@ -63,13 +63,18 @@ const CustomerList = (props) => {
     Candidate List
     </h4>
     <div className="table-responsive">
-      <table className="table table-sm table-striped table-hover table-bordered table-condensed "
+      <table className="table table-sm table-striped table-hover table-bordered"
       
       style={{
         position: "relative"
       }}>
-        <thead className =" thead-dark">
-          <tr className="bg-primary">
+        <thead className =" thead-light">
+          <tr className="bg-primary"
+          style={{
+            
+          fontFamily: "Arial, Helvetica, sans-serif",
+          fontSize: "11px"
+          }}>
             <th scope="col">Customer ID</th>
             <th scope="col">Sales Rep Emp No</th>
             <th scope="col">First Name</th>
