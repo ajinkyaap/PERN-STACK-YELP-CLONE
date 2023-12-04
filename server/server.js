@@ -1,3 +1,5 @@
+
+
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
@@ -17,7 +19,7 @@ app.post("/api/v1/userMasters", async (req, res) => {
   console.log(req.body);
 
   try {
-    const results = await db.query(
+    const results = await db.query (
       "INSERT INTO user_master (um_seq, um_login_id, um_password, um_role, um_name, um_address, um_email, um_unique_id, um_id_type, um_dept, um_login_sts, um_created_time, um_last_login, um_ln_attempts) values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) returning *",
       [req.body.um_seq, req.body.um_login_id, req.body.um_password, req.body.um_role, req.body.um_name, req.body.um_address, req.body.um_email, req.body.um_unique_id, req.body.um_id_type, req.body.um_dept, req.body.um_login_sts, req.body.um_created_time, req.body.um_last_login, req.body.um_ln_attempts]
     );
@@ -429,41 +431,41 @@ app.get("/api/v1/userVolunteers/:um_seq", async (req, res) => {
 
 ///Login 
 
-app.post("/api/v1/login", async (req, res) => {
-  console.log(req.body);
+// app.post("/api/v1/login", async (req, res) => {
+//   console.log(req.body);
 
-  try {
-    const results = await db.query(
-      "INSERT INTO login (um_login_id, um_password, um_role, um_name, um_email) values ($1, $2, $3, $4, $5) returning *",
-      [req.body.um_login_id, req.body.um_password, req.body.um_role, req.body.um_name, req.body.um_email]
-    );
-    console.log(results);
-    res.status(201).json({
-      status: "success",
-      data: {
-        Login: results.rows[0],
-      },
-    });
-  } catch (err)  {
-    const error = err;
-    res.status(400).json({
-      status: "error",
-      error:{
-        detail: err.detail,
-        where: err.where,
-        routine: err.routine
-      }
-    });
-    console.log(err);
-  }
-});
+//   try {
+//     const results = await db.query(
+//       "INSERT INTO login (um_login_id, um_password, um_role, um_name, um_email) values ($1, $2, $3, $4, $5) returning *",
+//       [req.body.um_login_id, req.body.um_password, req.body.um_role, req.body.um_name, req.body.um_email]
+//     );
+//     console.log(results);
+//     res.status(201).json({
+//       status: "success",
+//       data: {
+//         Login: results.rows[0],
+//       },
+//     });
+//   } catch (err)  {
+//     const error = err;
+//     res.status(400).json({
+//       status: "error",
+//       error:{
+//         detail: err.detail,
+//         where: err.where,
+//         routine: err.routine
+//       }
+//     });
+//     console.log(err);
+//   }
+// });
 
 app.get("/api/v1/login/:um_login_id", async (req, res) => {
   console.log(req.params.um_login_id);
 
   try {
     const loginData = await db.query(
-      "select * from login where um_login_id = $1",
+      "SELECT um_login_id,  um_password, um_role FROM volunteer",
       [req.params.um_login_id]
     );
 

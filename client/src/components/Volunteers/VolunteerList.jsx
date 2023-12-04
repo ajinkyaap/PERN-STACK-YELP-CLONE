@@ -116,6 +116,7 @@ const VolunteerList = (props) => {
                   }}
                   >{volunteer.vol_id}
                   </td>
+                  <td>{volunteer.um_seq}</td>
                   <td>{volunteer.um_login_id}</td>
                   <td>{volunteer.um_password}</td>
                   <td>{volunteer.um_role}</td>

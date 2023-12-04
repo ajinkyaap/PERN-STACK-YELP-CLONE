@@ -31,11 +31,9 @@ const App = () => {
       <div className="container">
         <Router>
           <Switch>
-            
+          <Route exact path="/" component={LoginPage} />
           <Route exact path="/register" component={RegisterForm} />
-            <Route exact path="/" component={LoginPage} />
-            
-            <Route exact path="/home" component={Home} />
+          <Route exact path="/home" component={Home} />
             
 
             {/* User Master Routes */}
@@ -50,7 +48,7 @@ const App = () => {
             <AddVolunteer/>
             <UserMasterDetailPage/>
             </Route>
-            
+
             {/* Volunteer Routes */}
             <Route exact path="/volunteers" >
                 <VolunteerList/>
