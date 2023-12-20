@@ -1,5 +1,9 @@
 /* register.css */
 
+.container {
+    width: 140%;
+    /* background: linear-gradient(-120deg, #021B79, #0575E6,  #205E9B); */
+}
 .form-control {
     height: 40px;
     box-shadow: none;

@@ -41,9 +41,21 @@ const LoginPage = () => {
     const isVolunteerValid = volunteers.some(
       (volunteer) => volunteer.um_login_id == um_login_id && volunteer.um_password == um_password
     );
-
+    
+    let role = 0;
+    let UmSeq, VolId;
     if (isUserMasterValid || isVolunteerValid) {
-      history.push('/home');
+        if(isUserMasterValid){
+            role = 11;
+            UmSeq = userMasters.um_seq;
+            history.push('/userMasters/:um_seq');
+        }
+        if(isVolunteerValid){
+            role = 12;
+            VolId = volunteers.vol_id;
+            history.push('/volunteers/:vol_id');
+        }
+    //   history.push('/home');
     } else {
       console.log('Invalid login credentials');
       // Optionally, you can reset the input fields or show an error message to the user

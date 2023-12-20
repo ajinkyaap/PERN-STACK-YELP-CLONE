@@ -90,13 +90,13 @@ const VolunteerDetailPage = () => {
           <div className="container">
             <div className="row">
               <div className="col-lg">
-                  <h6>UM Sequence : </h6>
+                  <h6>Sequence : </h6>
               </div>
               <div className="col-lg">
                 {selectedVolunteer.Volunteers.um_seq}
               </div>
                 <div className="col-lg">
-                  <h6>UM Login ID : </h6>
+                  <h6>Login ID : </h6>
               </div>
               <div className="col-lg">
               {selectedVolunteer.Volunteers.um_login_id}
@@ -104,52 +104,52 @@ const VolunteerDetailPage = () => {
             </div>
             <div className="row">
               <div className="col-lg">
-                  <h6>UM Role : </h6>
+                  <h6>Role : </h6>
               </div>
               <div className="col-lg">{selectedVolunteer.Volunteers.um_role}</div>
                 <div className="col-lg">
-                  <h6>UM Name : </h6>
+                  <h6>Name : </h6>
               </div>
               <div className="col-lg">{selectedVolunteer.Volunteers.um_name}</div>
             </div>
             <div className="row">
               <div className="col-lg">
-                  <h6>UM Address : </h6>
+                  <h6>Address : </h6>
               </div>
               <div className="col-lg">{selectedVolunteer.Volunteers.um_address}</div>
                 <div className="col-lg">
-                  <h6>UM Email ID : </h6>
+                  <h6>Email ID : </h6>
               </div>
               <div className="col-lg">{selectedVolunteer.Volunteers.um_email}</div>
             </div>
             <div className="row">
               <div className="col-lg">
-                  <h6>UM Unique ID : </h6>
+                  <h6>Unique ID : </h6>
               </div>
               <div className="col-lg">{selectedVolunteer.Volunteers.um_unique_id}</div>
                 <div className="col-lg">
-                  <h6>UM Department : </h6>
+                  <h6>Department : </h6>
               </div>
               <div className="col-lg">{selectedVolunteer.Volunteers.um_dept}</div>
             </div>
             <div className="row">
               <div className="col-lg">
-                  <h6>UM Login Status : </h6>
+                  <h6>Login Status : </h6>
               </div>
               <div className="col-lg">{selectedVolunteer.Volunteers.um_login_sts}</div>
                 <div className="col-lg">
-                  <h6>UM Created Time: </h6>
+                  <h6>Created Time: </h6>
               </div>
               <div className="col-lg">{selectedVolunteer.Volunteers.um_created_time}</div>
             </div>
             <div className="row">
               <div className="col-lg">
                 <div className="col"></div>
-                  <h6>UM Last Login : </h6>
+                  <h6>Last Login : </h6>
               </div>
               <div className="col-lg">{selectedVolunteer.Volunteers.um_last_login}</div>
                 <div className="col-lg">
-                  <h6>UM Ln Attempts : </h6>
+                  <h6>Ln Attempts : </h6>
               </div>
               <div className="col-lg">{selectedVolunteer.Volunteers.um_ln_attempts}</div>
             </div>
@@ -160,7 +160,7 @@ const VolunteerDetailPage = () => {
               </div>
               <div className="col-lg">{selectedVolunteer.Volunteers.um_last_login}</div>
                 <div className="col-lg">
-                  <h6>UM Ln Attempts : </h6>
+                  <h6>Ln Attempts : </h6>
               </div>
               <div className="col-lg">{selectedVolunteer.Volunteers.um_ln_attempts}</div>
             </div>
@@ -179,7 +179,7 @@ const VolunteerDetailPage = () => {
             }}>
               <thead className =" thead-dark">
                 <tr className="bg-primary">
-                  <th scope="col">candidate_id</th>
+                  <th scope="col">Candidate Id</th>
                   <th scope="col">Sales Rep Emp Num</th>
                   <th scope="col">First Name</th>
                   <th scope="col">Last Name</th>
@@ -212,13 +212,13 @@ const VolunteerDetailPage = () => {
                 {customers &&
                   customers.map((customer) => {
                     return (
-                      <tr
-                        onClick={() => handleCustomerSelect(customer.customer_id)}
-                          key={customer.customer_id}
-                      >
+                      <tr>
                         <td>{customer.customer_id}</td>
                         <td>{customer.sales_rep_emp_num}</td>
-                        <td>{customer.cust_first_name}</td>
+                        <td
+                        onClick={() => handleCustomerSelect(customer.customer_id)}
+                        key={customer.customer_id}
+                        >{customer.cust_first_name}</td>
                         <td>{customer.cust_last_name}</td>
                         <td>{customer.cust_mother_name}</td>
                         <td>{customer.cust_father_name}</td>

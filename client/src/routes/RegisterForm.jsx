@@ -103,131 +103,133 @@ const RegisterForm = () => {
     };
 
     return (
-        <div className="signup-form">
-            <form>
-                <h2>Register</h2>
-                <div className="form-group">
-                    <div className="row">
-                        <div className="col">
-                            <label>Role</label>
-                            <input type="number" className="form-control" name="role" placeholder="Role" required 
-                            value={um_role}
-                            onChange={(e) => setUmRole(e.target.value)}
-                            />
-                        </div>
+        <div className="container">
+            <div className="signup-form">
+                <form>
+                    <h2>Register</h2>
+                    <div className="form-group">
                         <div className="row">
                             <div className="col">
-                            {/* <label>Full Name</label>
-                            <input type="text" className="form-control" name="first_name" placeholder="First Name" required 
-                            value={um_name}
-                            onChange={(e) => setUmName(e.target.value)}
-                            /> */}
+                                <label>Role</label>
+                                <input type="number" className="form-control" name="role" placeholder="Role" required 
+                                value={um_role}
+                                onChange={(e) => setUmRole(e.target.value)}
+                                />
+                            </div>
+                            <div className="row">
+                                <div className="col">
+                                {/* <label>Full Name</label>
+                                <input type="text" className="form-control" name="first_name" placeholder="First Name" required 
+                                value={um_name}
+                                onChange={(e) => setUmName(e.target.value)}
+                                /> */}
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div className="form-group">
-                    <div className="row">
-                            <div className="col">
-                            <label>Full Name</label>
-                            <input type="text" className="form-control" name="um_name" placeholder="Full Name" required 
-                            value={um_name}
-                            onChange={(e) => setUmName(e.target.value)}
-                            />
-                            </div>
-                            {/* <div className="col">
-                            <label>Role</label>
-                            <input type="text" className="form-control" name="role" placeholder="Role" required 
-                            value={um_role}
-                            onChange={(e) => setUmRole(e.target.value)}
-                            />
-                        </div> */}
-                    </div>
-                </div>
-
-                <div className="form-group">
-                    <div className="row">
-                    <div className="col">
-                            <label>Unique ID</label>
-                            <input type="text" className="form-control" name="unique_id" placeholder="Unique ID" required
-                            value={um_unique_id}
-                            onChange={(e) => setUmUniqueId(e.target.value)}
-                             />
-                        </div>
-                        <div className="col">
-                        <label>Volunteer / Employee ID</label>
-                            <input type="text" className="form-control" name="Vol/Emp ID" placeholder="Last Name" required
-                            value={um_role == 11 ? um_seq : vol_id}
-                            onChange={(e) => um_role == 11 ? setUmSeq(e.target.value) : setVolId(e.target.value)}
-                             />
-                        </div>
-                    </div>
-                </div>
-
-                <div className="form-group">
-                    <div className="row">
-                        <div className="col">
-                            <label>Login ID</label>
-                            <input type="text" className="form-control" name="login_id" placeholder="Login ID" required
-                            value={um_login_id}
-                            onChange={(e) => setUmLoginId(e.target.value)}
-                             />
-                        </div>
-                        <div className="col">
-                        <label>Password</label>
-                            <input type="password" className="form-control" name="password" placeholder="Password" required 
-                            value={um_password}
-                            onChange={(e) => setUmPassword(e.target.value)}
-                            />
-                        </div>
-                    </div>
-                </div>
-
-                {/* <div className="form-group">
-                    <div className="row">
-                        <div className="col">
-                            <label>Unique ID</label>
-                            <input type="text" className="form-control" name="unique_id" placeholder="Unique ID" required />
-                        </div>
+                    <div className="form-group">
                         <div className="row">
-                            <div className="col"></div>
+                                <div className="col">
+                                <label>Full Name</label>
+                                <input type="text" className="form-control" name="um_name" placeholder="Full Name" required 
+                                value={um_name}
+                                onChange={(e) => setUmName(e.target.value)}
+                                />
+                                </div>
+                                {/* <div className="col">
+                                <label>Role</label>
+                                <input type="text" className="form-control" name="role" placeholder="Role" required 
+                                value={um_role}
+                                onChange={(e) => setUmRole(e.target.value)}
+                                />
+                            </div> */}
                         </div>
                     </div>
-                </div> */}
 
-                <div className="form-group">
-                    <label>Address</label>
-                    <input type="address" className="form-control" name="address" placeholder="Address" required
-                    value={um_address}
-                    onChange={(e) => setUmAddress(e.target.value)}
-                     />
-                </div>
+                    <div className="form-group">
+                        <div className="row">
+                        <div className="col">
+                                <label>Unique ID</label>
+                                <input type="text" className="form-control" name="unique_id" placeholder="Unique ID" required
+                                value={um_unique_id}
+                                onChange={(e) => setUmUniqueId(e.target.value)}
+                                />
+                            </div>
+                            <div className="col">
+                            <label>Volunteer / Employee ID</label>
+                                <input type="text" className="form-control" name="Vol/Emp ID" placeholder="Emp / Vol ID" required
+                                value={um_role == 11 ? um_seq : vol_id}
+                                onChange={(e) => um_role == 11 ? setUmSeq(e.target.value) : setVolId(e.target.value)}
+                                />
+                            </div>
+                        </div>
+                    </div>
 
-                <div className="form-group">
-                    <label>Email</label>
-                    <input type="email" className="form-control" name="email" placeholder="Email" required
-                    value={um_email}
-                    onChange={(e) => setUmEmail(e.target.value)}
-                     />
-                </div>
-                <div className="form-group">
-                    <label className="form-check-label">
-                        <input type="checkbox" required /> I accept the
-                        <a href="#"> Terms of Use</a> &amp;
-                        <a href="#"> Privacy Policy</a>
-                    </label>
-                </div>
-                <div className="form-group">
-                    <button className="btn btn-lg btn-block" onClick={handleSubmit}>Register Now</button>
-                </div>
+                    <div className="form-group">
+                        <div className="row">
+                            <div className="col">
+                                <label>Login ID</label>
+                                <input type="text" className="form-control" name="login_id" placeholder="Login ID" required
+                                value={um_login_id}
+                                onChange={(e) => setUmLoginId(e.target.value)}
+                                />
+                            </div>
+                            <div className="col">
+                            <label>Password</label>
+                                <input type="password" className="form-control" name="password" placeholder="Password" required 
+                                value={um_password}
+                                onChange={(e) => setUmPassword(e.target.value)}
+                                />
+                            </div>
+                        </div>
+                    </div>
 
-                
-            <div className="text-center">
-                Already have an account?
-                <span onClick={handleLogin}> Sign in</span>
+                    {/* <div className="form-group">
+                        <div className="row">
+                            <div className="col">
+                                <label>Unique ID</label>
+                                <input type="text" className="form-control" name="unique_id" placeholder="Unique ID" required />
+                            </div>
+                            <div className="row">
+                                <div className="col"></div>
+                            </div>
+                        </div>
+                    </div> */}
+
+                    <div className="form-group">
+                        <label>Address</label>
+                        <input type="address" className="form-control" name="address" placeholder="Address" required
+                        value={um_address}
+                        onChange={(e) => setUmAddress(e.target.value)}
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label>Email</label>
+                        <input type="email" className="form-control" name="email" placeholder="Email" required
+                        value={um_email}
+                        onChange={(e) => setUmEmail(e.target.value)}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label className="form-check-label">
+                            <input type="checkbox" required /> I accept the
+                            <a href="#"> Terms of Use</a> &amp;
+                            <a href="#"> Privacy Policy</a>
+                        </label>
+                    </div>
+                    <div className="form-group">
+                        <button className="btn btn-lg btn-block" onClick={handleSubmit}>Register Now</button>
+                    </div>
+
+                    
+                <div className="text-center">
+                    Already have an account?
+                    <span onClick={handleLogin}> Sign in</span>
+                </div>
+                </form>
             </div>
-            </form>
         </div>
     );
 };
